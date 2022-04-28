@@ -18,14 +18,6 @@ function criaLi(){
     return li;
 }
 
-
-  function criarbtn(li){
-    let btn = document.createElement('button');
-    btn.innerHTML = 'apagar';
-    li.appendChild(btn);
-    
-}  
-
 function criarIcone(li){
     let icon = document.createElement('i');
     icon.setAttribute('class', 'fa-solid fa-trash');
