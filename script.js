@@ -32,3 +32,14 @@ function criarIcone(li){
     li.appendChild(icon);
 }
 
+function criarIcone(li){
+    let icon = document.createElement('i');
+    icon.setAttribute('class', 'fa-solid fa-trash');
+    li.appendChild(icon);
+
+    icon.addEventListener('click', function(e){
+        li = e.target;
+        li.parentNode.remove();
+    })
+}
+
