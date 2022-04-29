@@ -58,6 +58,7 @@ body{
     background-color: #129b3f !important;
     text-decoration: line-through;
     color: white;
+    cursor: pointer;
 }
 .tarefa li{
     background-color: white;
