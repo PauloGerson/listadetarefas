@@ -13,21 +13,27 @@ input.addEventListener('keypress', function(e){
         criaLi();
     }
 
-    //outra forma
-    
+    /*outra forma
+    if(e.which == 13){
+        criaLi();
+    }
+
+    */
+
 })
  
-function criaLi(){
-    if(input.value !== ''){
-    li = document.createElement('li');
-    li.innerText = input.value;
-    apagarLi(li);
-    completarLi(li)
-    container.appendChild(li);
-    salvarTarefa()
-    input.value = '';
+function criaLi(input){
+    if(input !== ''){
+        li = document.createElement('li');
+        li.innerText = input;
+        apagarLi(li);
+        completarLi(li);
+        container.appendChild(li);
+        salvarTarefa();
+       
     
-}
+    }
+    //console.log(localStorage.getItem('tarefas'))
 }
 
 function apagarLi(li){
@@ -59,7 +65,7 @@ function salvarTarefa(){
     const listaDeTarefas = [];
 
     for (let tarefa of liTarefas){
-        let text = tarefa.innerText
+        let text = tarefa.innerText;
         listaDeTarefas.push(text); // com o push, estamos adicionando os itens de tarefas em listaDetarfas
     } 
 
@@ -73,11 +79,13 @@ function adicionarTarefasSalvar(){
     const listaDeTarefas = JSON.parse(tarefas); // voltando a seu tipo inicial, no caso um array de caracteres
     
     for(let tarefa of listaDeTarefas){
-        criaLi(tarefa);
+        criaLi(tarefa);       
     }
 }
 
-
+addEventListener("DOMContentLoaded", function(){
+    adicionarTarefasSalvar();
+})
 
 
 

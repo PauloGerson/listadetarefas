@@ -45,6 +45,10 @@ body{
     color: white;
     width: 5rem;
     cursor: pointer;
+    transition: 1s;
+}
+.teste button:hover{
+    background-color: rgb(8, 87, 61);
 }
 
 .tarefa{
