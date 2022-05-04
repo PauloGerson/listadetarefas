@@ -6,9 +6,14 @@ let li;
 btn.addEventListener('click', function(e){
     //console.log('oi') 
     criaLi(); 
- 
 })
 
+input.addEventListener('keypress', function(e){
+    if( e.keyCode == 13){
+        criaLi();
+    }
+})
+ 
 function criaLi(){
     if(input.value !== ''){
     li = document.createElement('li');
@@ -69,7 +74,7 @@ function adicionarTarefasSalvar(){
     }
 }
 
-adicionarTarefasSalvar();
+
 
 
 
