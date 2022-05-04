@@ -80,3 +80,7 @@ body{
     text-decoration: dashed;
     margin: 0 1rem;
 }
+
+h3{
+    text-align: center;
+}

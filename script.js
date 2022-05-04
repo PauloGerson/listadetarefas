@@ -12,6 +12,9 @@ input.addEventListener('keypress', function(e){
     if( e.keyCode == 13){
         criaLi();
     }
+
+    //outra forma
+    
 })
  
 function criaLi(){
