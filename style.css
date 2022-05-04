@@ -56,9 +56,13 @@ body{
 }
 .visible {
     background-color: #129b3f !important;
-    text-decoration: line-through;
     color: white;
     cursor: pointer;
+    text-decoration: line-through;
+}
+
+.visible li{
+    
 }
 .tarefa li{
     background-color: white;
@@ -74,4 +78,5 @@ body{
 .fa-trash{
     cursor: pointer;
     text-decoration: dashed;
+    margin: 0 1rem;
 }
