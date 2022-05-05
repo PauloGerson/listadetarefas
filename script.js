@@ -53,7 +53,7 @@ function criaTarefa(conten){
     icon.addEventListener('click', function(e){
         li = e.target;
         li.parentNode.parentNode.remove();
-        //salvarTarefa()
+        salvarTarefa()
     })   
 }
 
