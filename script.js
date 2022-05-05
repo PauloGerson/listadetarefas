@@ -1,12 +1,13 @@
 let container = document.querySelector('.tarefa');
 let btn = document.querySelector('.btn');
 let input = document.querySelector('.input');
+let teste = document.querySelector('.teste');
 
 
 btn.addEventListener('click', function(){
-    if(conten !== ''){
+   
         criaTarefa(input.value);
-    }
+    
     //console.log('oi') 
     //criaLi(); 
 })
@@ -37,7 +38,13 @@ function criaTarefa(conten){
     li.innerText = conten;  
     if(conten !== ''){
         container.appendChild(li); 
-    }    
+        let span = document.querySelector('.erro')
+        span.innerHTML = '';
+    }else{
+        let span = document.querySelector('.erro')
+        span.innerHTML = 'Campo vazio';
+        teste.appendChild(span);
+    }
     apagarLi(li)
     completarLi(li)
     salvarTarefa(li)
