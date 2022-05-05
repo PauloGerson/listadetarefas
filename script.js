@@ -1,42 +1,49 @@
 let container = document.querySelector('.tarefa');
 let btn = document.querySelector('.btn');
 let input = document.querySelector('.input');
-let li;
 
-btn.addEventListener('click', function(e){
+
+btn.addEventListener('click', function(){
+    criaTarefa(input.value);
+    
     //console.log('oi') 
-    criaLi(); 
+    //criaLi(); 
+
 })
 
 input.addEventListener('keypress', function(e){
-    if( e.keyCode == 13){
-        criaLi();
-    }
-
-    /*outra forma
-    if(e.which == 13){
-        criaLi();
-    }
-
-    */
-
-})
- 
-function criaLi(input){
-    if(input !== ''){
-        li = document.createElement('li');
-        li.innerText = input;
-        apagarLi(li);
-        completarLi(li);
-        container.appendChild(li);
-        salvarTarefa();
-       
+  
+        if( e.keyCode == 13){
+            criaTarefa(input.value);
+        }
     
-    }
-    //console.log(localStorage.getItem('tarefas'))
+        /*outra forma
+        if(e.which == 13){
+            criaLi();
+        }
+    
+        */
+ })
+
+
+ 
+function criarLi(){
+    let li = document.createElement('li');
+    return li;
 }
 
-function apagarLi(li){
+function criaTarefa(conten){     
+    const li = criarLi();
+    li.innerText = conten;
+    container.appendChild(li);
+    apagarLi(li)
+    completarLi(li)
+    salvarTarefa(li)
+    input.value = '';
+
+}
+
+ function apagarLi(li){
     let icon = document.createElement('i');
     let span = document.createElement('span');
     icon.setAttribute('class', 'fa-solid fa-trash');
@@ -46,7 +53,7 @@ function apagarLi(li){
     icon.addEventListener('click', function(e){
         li = e.target;
         li.parentNode.parentNode.remove();
-        salvarTarefa()
+        //salvarTarefa()
     })   
 }
 
@@ -56,11 +63,11 @@ function completarLi(li){
        li.classList.toggle('visible');
        
     })
-}
+} 
 
 
 //selecionado as li para salvar no localStorage
-function salvarTarefa(){
+ function salvarTarefa(){
     const liTarefas = container.querySelectorAll('li');
     const listaDeTarefas = [];
 
@@ -71,21 +78,20 @@ function salvarTarefa(){
 
     const tarefaJSON = JSON.stringify(listaDeTarefas); // formtando um array para um tipo string do obejto json
     localStorage.setItem('tarefas', tarefaJSON);
-    
+   
 }
-
 function adicionarTarefasSalvar(){
     const tarefas = localStorage.getItem('tarefas');
+   
     const listaDeTarefas = JSON.parse(tarefas); // voltando a seu tipo inicial, no caso um array de caracteres
-    
+    console.log(listaDeTarefas)
     for(let tarefa of listaDeTarefas){
-        criaLi(tarefa);       
+        //console.log(tarefa)
+        criaTarefa(tarefa)              
     }
 }
-
-addEventListener("DOMContentLoaded", function(){
-    adicionarTarefasSalvar();
-})
+ 
+adicionarTarefasSalvar();
 
 
 
