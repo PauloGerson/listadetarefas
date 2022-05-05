@@ -4,11 +4,11 @@ let input = document.querySelector('.input');
 
 
 btn.addEventListener('click', function(){
-    criaTarefa(input.value);
-    
+    if(conten !== ''){
+        criaTarefa(input.value);
+    }
     //console.log('oi') 
     //criaLi(); 
-
 })
 
 input.addEventListener('keypress', function(e){
@@ -34,8 +34,10 @@ function criarLi(){
 
 function criaTarefa(conten){     
     const li = criarLi();
-    li.innerText = conten;
-    container.appendChild(li);
+    li.innerText = conten;  
+    if(conten !== ''){
+        container.appendChild(li); 
+    }    
     apagarLi(li)
     completarLi(li)
     salvarTarefa(li)
@@ -84,7 +86,7 @@ function adicionarTarefasSalvar(){
     const tarefas = localStorage.getItem('tarefas');
    
     const listaDeTarefas = JSON.parse(tarefas); // voltando a seu tipo inicial, no caso um array de caracteres
-    console.log(listaDeTarefas)
+    
     for(let tarefa of listaDeTarefas){
         //console.log(tarefa)
         criaTarefa(tarefa)              
